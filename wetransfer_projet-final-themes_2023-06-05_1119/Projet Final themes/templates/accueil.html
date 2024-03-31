@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+        <head>
+        <meta charset="UTF-8">
+        <title>ACCUEIL</title>
+        <link rel = "stylesheet" href = "{{url_for('static',filename = 'style.css')}}">
+        </head>
+
+        <body class = '{{fond}}'>
+        <script src = "{{url_for('static',filename = 'script.js')}}" ></script>
+
+
+
+
+
+        <div id="header">
+
+                <form action = "deconnexion" method = "post">
+                        <button class = "bouton" type = "submit">DECONNEXION</button>
+                </form>
+                        <form action='creer_grp' method="post"><button class="bouton">+ Groupe</button> </form>
+                <h2 class="titre">ACCUEIL</h2>
+                <div id ="div_param_deco">
+                <form action = "settings" method = "post">
+                        <button class="bouton" type = "submit">PARAMETRES</button>
+                </form>
+
+                </div>
+                        <button class = "bouton" style='visibility:hidden;' type = "submit">Pizza</button>
+        </div>
+
+                <div class="generale">
+                
+                <div class='list_contact'> 
+                        <div id="d_ajoutcont">
+                        <form action='ajout' method='post'> <input name='entrer_ajout' placeholder="Rechercher un utilisateur" />  <button class='bouton_input' type="submit"> ajouter </button> </form> 
+                        </div>
+                        <div  id = 'contenu' > {{ conversation|safe }}</div>
+                        
+
+                </div>
+                
+
+                <div class='aff_mess'><div>{{nom_convact}}</div> <div>{{conv_act|safe}}</div> <div id="div_input_env_mess">{{champsmess|safe}}</div> </div>
+                
+                
+                </div>
+
+                <div>{{erreur|safe}}</div>
+
+                <div>
+                        <p id = "autre">{{autre}}</p>
+        <script>
+        let autre = document.getElementById("autre").innerText;
+        let surbrillance = document.getElementById(autre);
+        let cl = document.body.class
+
+        surbrillance.style.background = 'white';
+        </script>
+                </div>
+<style>
+.titre{
+    background: -webkit-linear-gradient(60deg,{{princ_1}},{{princ_2}} ,{{princ_3}} );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    text-align: center;
+    font-family: optima, sans-serif;
+}
+
+.generale{
+    border: 2px solid {{princ_1}};
+    position: relative;
+    width: 75%;
+    height: 30em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1.5rem;
+}
+
+/* .generale:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg,{{princ_1}},{{princ_2}} ,{{princ_3}} );
+  border-radius: 1.5rem;
+  z-index: -1;
+  animation: animatedgradient 2.5s ease alternate infinite;
+  background-size: 300% 300%;
+} */
+
+.bouton_conv{
+    width: 100%;
+    height: 3em;
+    border-radius: 0.5em;
+    position: relative;
+    z-index: 1;
+    background:linear-gradient(120deg,{{princ_1}} -30%, {{princ_2}} 30%,{{princ_3}} 130%);
+    border: none;
+    font-family: optima, sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    border : 1px solid black;
+    cursor: pointer;
+}
+.bouton_conv::before{
+    content : '';
+    border: none;
+    width: 0;
+    height: 3em;
+    border-radius: 0.5em;
+    position: absolute;
+    top:0;
+    left: 0;
+    font-family: optima, sans-serif;
+    font-weight: bold;
+    font-size: 0.9em;
+    border : 1px solid black;
+    cursor: pointer;
+    background-image: linear-gradient(120deg,{{princ_3}} -50%, {{princ_2}} 20%,{{princ_1}} 160%);
+    transition: .4s ease;
+    display: block;
+    z-index: -1;
+}
+.bouton_conv:hover::before{
+    width: 100%;
+    height:100%;
+}
+.bouton_input{
+    border-radius: 0.5em;
+    background: {{b_input}};
+    border : 1px solid black;
+    cursor: pointer;
+}
+
+.list_contact{
+    float: left;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(120deg,{{princ_3}} 0%, {{princ_2}} 20%,{{princ_1}} 130%);
+    border-radius: 0.8rem;
+}
+
+.bouton{
+    background: linear-gradient(to right,{{princ_1}},{{princ_2}} ,{{princ_3}}   );
+    border:2.5px solid black;
+    height:5em;
+    width: 15em;
+    border-radius: 8em;
+    padding: 1.4em;
+    cursor: pointer;
+    position: relative;
+    margin: 1rem;
+    font-family: optima, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    min-width: 8rem;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px 30px {{ombre}};
+
+}
+
+.bouton::before {
+    content : '';
+    width: 0;
+    height: 100%;
+    border-radius: 2em;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-image: linear-gradient(60deg,{{princ_2}} 20%,{{princ_3}} 50% ,{{princ_1}} 100%);
+    transition: .4s ease;
+    display: block;
+    z-index: -1;
+}
+.bouton:hover::before {
+    width: 100%;
+    box-shadow: 20px 2px 30px {{ombre}};
+}
+
+.message_gauche{
+    float:left;
+    display:inline-block;
+    width: auto;
+    font-weight: bold;
+    background: {{mess_g}};
+    font-family: optima, sans-serif;
+    margin-left: 0%;
+    border-radius: 1rem;
+    padding: 5px;
+}
+
+.message_droite{
+    float:right;
+    display:inline-block;
+    width: auto;
+    font-weight: bold;
+    background: {{mess_d}};
+    font-family: optima, sans-serif;
+    border-radius: 1rem;
+    padding: 5px;
+}
+        </style>
+        </body>
+</html>

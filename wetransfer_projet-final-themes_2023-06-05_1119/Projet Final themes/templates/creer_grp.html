@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Créer un Groupe</title>
+        <link rel = "stylesheet" href = "{{url_for('static',filename = 'style.css')}}">
+    </head>
+
+    <body class='{{fond}}'>
+
+
+                <style>
+
+.titre{
+    background: -webkit-linear-gradient(60deg,#00e8ff,#740cb8 ,#f300ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    text-align: center;
+    font-family: optima, sans-serif;
+}
+
+.bouton{
+    background: linear-gradient(to right,#00e8ff,#740cb8 ,#f300ff);
+    border:2.5px solid black;
+    height:5em;
+    width: 15em;
+    border-radius: 8em;
+    padding: 1.4em;
+    cursor: pointer;
+    position: relative;
+    margin: 1rem;
+    font-family: optima, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    min-width: 8rem;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px 30px #bd07da;
+
+}
+
+.bouton::before {
+    content : '';
+    width: 0;
+    height: 100%;
+    border-radius: 2em;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-image: linear-gradient(60deg,#740cb8 20%,#f300ff 50% ,#00e8ff 100%);
+    transition: .4s ease;
+    display: block;
+    z-index: -1;
+}
+.bouton:hover::before {
+    width: 100%;
+    box-shadow: 20px 2px 30px #bd07da;
+}
+        </style>
+        <script src = "{{url_for('static',filename = 'script.js')}}" async></script>
+        <h1 class="titre">Créer un groupe</h1>
+
+        <form action = "retour" method = "get">
+            <button class='bouton' >RETOUR</button>
+        </form>
+        
+        <div class="generale" >
+            <div action='creergrp' method='post' id="form_case">
+                {{case_cocher|safe}}
+                <button class="bouton" onclick="valcreer()" type="submit">CREER</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+

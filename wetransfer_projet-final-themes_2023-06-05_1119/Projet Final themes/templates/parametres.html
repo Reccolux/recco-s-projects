@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>PARAMETRES</title>
+        <link rel = "stylesheet" href = "{{url_for('static',filename = 'style.css')}}">
+    </head>
+
+    <body class='{{fond}}'>
+
+
+        <script src = "{{url_for('static',filename = 'script.js')}}"></script>
+
+                <style>
+
+.titre{
+    background: -webkit-linear-gradient(60deg,{{princ_1}},{{princ_2}} ,{{princ_3}} );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    text-align: center;
+    font-family: optima, sans-serif;
+}
+
+.bouton{
+    background: linear-gradient(to right,{{princ_1}},{{princ_2}} ,{{princ_3}}   );
+    border:2.5px solid black;
+    height:5em;
+    width: 15em;
+    border-radius: 8em;
+    padding: 1.4em;
+    cursor: pointer;
+    position: relative;
+    margin: 1rem;
+    font-family: optima, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    min-width: 8rem;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px 30px {{ombre}};
+
+}
+
+.bouton::before {
+    content : '';
+    width: 0;
+    height: 100%;
+    border-radius: 2em;
+    position: absolute;
+    top:0;
+    left: 0;
+    background-image: linear-gradient(60deg,{{princ_2}} 20%,{{princ_3}} 50% ,{{princ_1}} 100%);
+    transition: .4s ease;
+    display: block;
+    z-index: -1;
+}
+.bouton:hover::before {
+    width: 100%;
+    box-shadow: 20px 2px 30px {{ombre}};
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: {{princ_1}};
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: {{princ_2}};
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px {{princ_2}};
+}
+        </style>
+
+        <div id='header'>
+        <form action = "retour" method = "get">
+            <button class='bouton' >RETOUR</button>
+        </form>
+        <h2 class="titre">PARAMETRES</h2>
+        <button class='bouton' style="visibility: hidden;" >RETOUR</button>
+        </div>
+        <label class="switch">
+            {{switch | safe}}
+            <span class="slider round"></span>
+        </label>
+
+        <p id = "cont" class='{{cl}}'></p>
+
+        <br>
+
+
+        <div id = 'themes'>
+
+
+
+
+            <label id='test'>
+            <input type = "radio" id = 'theme_1' name = "theme" value = "theme_1" ><div id='theme_1' class = "div_theme theme_1"><p class='{{cl}}'>THEME 1</p></div></input>
+            </label>
+
+                <br>
+
+            <label>
+            <input type = "radio" id = 'theme_2' name = "theme" value = "theme_2" ><div id='theme_1' class = "div_theme theme_2"><p class='{{cl}}'>THEME 2</p></div></input>
+            </label>
+
+                <br>
+
+            <label>
+            <input type = "radio" id = 'theme_3' name = "theme" value = "theme_3" > <div id='theme_3' class = "div_theme theme_3"><p class='{{cl}}'>THEME 3</p></div>
+            </label>
+
+        <button class = 'bouton valider' style='margin: 75px;' onclick = 'valider()'>VALIDER</button>
+        </div>
+
+
+
+        <script>
+
+function changerClarte(){
+    // change la clarté aux souhaits de l'utilisateur
+    let clarte = document.getElementById("clarte");
+    let p = document.getElementById('cont');
+    let themes = document.getElementById('themes').getElementsByTagName('p')
+    if (clarte.checked == true){
+        p.innerHTML = "SOMBRE";
+        p.style.color = "white";
+        document.body.style.background = '#000017';
+        for (let i = 0;i<themes.length;i++){
+        themes[i].style.color = "white";}
+        return 'sombre';
+    }
+    else{
+        p.innerHTML = "CLAIR";
+        p.style.color = "black";
+        document.body.style.background = '#fff';
+        for (let i = 0;i<themes.length;i++){
+            themes[i].style.color = "black";}
+        return 'clair';
+    }
+}
+
+changerClarte()
+
+function valider(){
+    // confirme les paramètres enregistrés
+    let boutons = document.getElementById("themes").getElementsByTagName("input")
+    for(let i = 0;i<boutons.length;i++){
+        if (boutons[i].checked==true){
+            return window.location="/appliquer?clarte="+changerClarte()+"&theme="+boutons[i].id;
+        }
+    }
+
+}
+
+
+
+
+        </script>
+
+    </body>
+</html>

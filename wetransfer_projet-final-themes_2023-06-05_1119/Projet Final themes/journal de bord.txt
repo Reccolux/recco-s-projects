@@ -1,0 +1,133 @@
+PROJET FIN D'ANNEE
+
+# 17/04
+-début du projet, brainstorming pour savoir comment va s'organiser notre messagerie
+
+# 22/04
+(Roméo)
+- création des pages html (pour l'instant vides) et du fichier python pour d'abord créer l'architecture
+
+# 23/04
+(Roméo)
+-reprise du travail sur le système de logins de l'ancien projet en l'améliorant un peu --> fonctions js creer/connecter
+
+# 11/05
+-brainstorming du projet car plus facile de parler en présentiel
+-organisation de la messagerie, on choisit de créer un fichier json pour les logins et un autre pour les conversations
+
+pendant les 2h de cours :
+-M Chasle nous a donné l'idée de séparer les noms d'utilisateurs par @ car tuples ne marchent pas en json en tant que clef de dictionnaire
+
+(Roméo)
+-fonctions pour rechercher des conversations
+
+(Antonin)
+-Création et lien du js et mise en place des fichier de json ( conversation/comptes ) debut du systeme d'envoie de message
+
+# 12/05
+(Romeo)
+-création de foncions sans rien dedans, pour organiser et structurer le programme
+-création de la fonction remplacer + send et intégration dans les redirections ==> le input de l'accueil ajoute dans conversations.json
+
+# 13/05
+(Antonin)
+- Matin Création des bouton de conversation en fonction des personne avec qui a deja parler l'utilisateur actuelement selectioné mais probleme le code et reçu par html comme du txt et non des balise <bouton>
+-Aprem solution avec {{exemple|safe}} (probleme du caractère d'échappement, par default même les balise sont considérer comme txt)
+-Soir essaie d'afficher la conversation qui correspond au clic de bouton. Mais probleme: je n'arrive pas a savoir quel était le bouton cliquer : bcp de recherche une idee de solution avec js
+
+(Romeo)
+-meilleures organisations pour le traitement de données + toute la redirection vers accueil avec vérification des données entrées pour la création/connexion
+
+# 15/05
+-Grâce à l'aide précieuse de M.Chasles, on a réussi à savoir quel bouton de la liste de contact est cliqué grâce à addEventListener + window.location
+-input pour ajouter des contacts
+
+# 17/05
+(Romeo + Antonin) Travail ensemble au lycée: gros brainstorming sur les fonctionnalités qu'il faut ajouter, que ce soit pour lundi ou pour la complétion après
+(Romeo)
+-Début de la fonctionalité qui change l'ordre des contacts pour l'envoi d'un message + on constate un problème lors de la génération des boutons
+(Antonin)
+-règle le problème car il y avait un problème avec le compteur de afficher_contacts()
+
+# 18/05
+(Romeo)
+-Ajout de dates + heures pour chaque message pour pouvoir ensuite trier le dernier message pour changer l'ordre des contacts
+(Antonin)
+-Amélioration de ajouter_contacts
+-beaucoup (trop) de CSS
+
+# 19/05
+(Romeo)
+-Amelioration de afficher_contacts: on met le dernier message de chaque conversation dans un tableau de tuples pour ensuite le trier en fonction des dates et enfins récuperer les infos HTML qui nous intéressent MAIS les boutons apparaissent en double avec la moitié qui ne marchent pas
+(Antonin)
+-Encore plus de CSS + tentatives d'animations avec le js qui ne sont pas très fructueuses
+
+# 20/05
+(Romeo + Antonin)
+-Très long appel téléphonique (+ de 5h dans la matinée) pour régler les derniers problèmes comme celui des boutons doubles (on parcourait les datas dans une boucle qui parcourait elle-même  les datas, ce qui est problématique)
+
+20/05 --> Antonin --> Matin Debut de l'adaptation de tout le code afin de pouvoir créer des groupes
+				-->	Aprem j'essaie d'installer et configurer le server web (nginx) avec uWISG sur mon rasberry pour herbeger le site. + sur le nom de domaine que je possède deja : Licode.fr | Sa fonctionne, sauf les redirection qui ne marche pas (elles fonctionnait bien sur en locale. Apres beaucoup de recherche la dessus je finit par decider passer a la suite 
+				--> Soir fin de l'adaptation des fonctions aux groupe, il ne me reste plus qu'a créer des boutons etc .. pour la créer des groupe | je finis avec un peu de CSS + ajout des ptit detail tel que placeholders
+(Romeo)
+-début de quelques petites fonctionnalités en plus, comme la surbrillance de la conversation active et tentative pour faire un système de "vues" mais trop compliqué et pas forcément urgent
+
+# 21/05
+(Antonin + Romeo)
+-On règle les derniers problèmes du code, surtout ceux posés par les groupes car ça ne collait pas forcément avec le programme d'avant
+
+(Antonin)
+21/05 --> je créer le fonctionnement de la création de groupe (case a cocher...), + envoie de message dans un groupe | je trouve une solution dans la configuration de nginx pour les redirection ! Licode.fr --> bug un peu étrange lors du deploiement(bouton qui se crée et erreur d'envoi de msg) Règle un bug d'affichage des conversation sur un nouveau compte
+
+
+(Romeo)
+-finition de la surbrillance des conversations + un peu de CSS surtout sur la page de connexion pour les messages d'erreur
+
+
+(R+A)Relecture du programme(nom variable/doc string)
+Correction d'un envoi du message dans un groupe lorsque l'ordre de la cle conversation n'est pas optimal
+
+
+RESTE A FAIRE POUR LA PRESENTATION EN JUIN:
+-correction de l'affichage des message
+-ajax pour recevoir sans refresh et autre
+-choisir un nom pour les groupe
+-animation js
+-message lu ou non
+-préférences :  CSS (déjà bien avancé par Romeo) + changer pseudo...
+-hashage des mdp
+-date de création d'une conversation car les conversations vides sont mal triées
+-accepter conv
+
+--Façon de travailler générale--
+Romeo travaille sur des petites fonctions et petits bouts à ajouter ici et là, tandis que Antonin a la structure entière du programme. Dès qu'une avancée majeure est faite par l'un de nous deux, Antonin WeTransfer le projet à Romeo pour compléter les deux travaux puis Romeo renvoie à Antonin pour qu'on ait la même version. On réitère ensuite à chaque fois que des avancées majeures sont faites, ce qui donne l'organisation en 7 versions, à chaque fois complétée par une ou plusieurs fonctionnalités
+Antonin travaille sur SublimText et Romeo sur Kate + Replit en commun juste pour envoyer quelques lignes de codes car n'accepte pas Flask
+
+
+
+
+
+-- Stockage de Données--
+
+-comptes : dictionnaire: keys=username value = mdp  
+-converesation : dictionnaire : keys = participant conversation séparer par des @ value = dictionnaire : keys = username/numero du message/heure d'envoi value = message
+
+(on va essayer de chiffré les donnée)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

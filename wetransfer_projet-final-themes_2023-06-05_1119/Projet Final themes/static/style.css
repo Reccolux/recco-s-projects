@@ -1,0 +1,328 @@
+.sombre{
+    background:#000017;
+    height:90vh;
+}
+
+.p_sombre{
+    color:white;
+}
+
+.clair{
+    background:white;
+    height:90vh;
+
+}
+
+.p_clair{
+    color:black;
+}
+
+.centre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;  
+
+}
+
+.aff_mess{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position:relative;
+    background:transparent;
+    float: right;
+    width: 78%;
+    height: 100%;
+    z-index: 2;
+    border-radius:2em;
+}
+.div_mess{
+
+    width: 95%;
+    height: 10px;
+    margin-bottom:1rem;
+    padding:0.7em;
+    z-index: 3;
+}
+
+.p_gauche{
+    height:10px;
+    text-align:left;
+    color:white;
+    padding:8px;
+    margin-bottom:7px;
+    margin-top: 3px;
+}
+
+
+
+.p_droite{
+    height:10px;
+    text-align:right;
+    color:white;
+    padding:8px;
+    margin-bottom:7px;
+    margin-top: 3px;
+}
+
+#themes{
+    
+    border: 2px solid black;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_theme{
+    width:200px;
+    height:100px;
+    margin:15px;
+
+}
+
+.theme_1{
+    background:linear-gradient(90deg,#740cb8,#f300ff ,#00e8ff);
+    margin-left:20%;
+    border-radius: 2rem;
+    text-align: center;
+}
+
+.theme_2{
+    background:linear-gradient(90deg,#FA6402,#F54640 ,#FA9504);
+    margin-left:20%;
+    border-radius: 2rem;
+    text-align: center;
+
+}
+
+.theme_3{
+    background:linear-gradient(90deg,#4AE19F,#0DDE49 ,#53ECD7);
+    margin-left:20%;
+    border-radius: 2rem;
+    text-align: center;
+
+}
+
+
+
+
+#div_mess{
+    display: grid;
+    max-height: 28rem;
+    width: 100%;
+    overflow-y: auto;
+
+    }
+
+#d_ajoutcont{
+    margin-top: 3%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#div_input_env_mess{
+    width: 100%;
+    text-align: center;
+    
+}
+
+#input_mess{
+    width: 90%;
+}
+#form_input_envoi{
+    margin-bottom: 1%;
+}
+#div_param_deco{
+    display: flex;
+}
+
+p{
+    height: 1px;
+}
+h1{
+    font-size: 350%;
+}
+h2{
+    font-size: 240%;
+}
+
+.erreur{
+    width: 150px;
+    border-radius: 1em;
+    background-color: #E1634A;
+    padding: 1%;
+    margin-top: 10%;
+    margin:auto;
+}
+
+.mess_err{
+    margin-top: 1%;
+}
+#header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5%;
+}
+body{
+    padding:0.5%;
+}
+
+.connec{
+    --borderWidth:6px;
+    min-width: 50%;
+    min-height: 20%;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    gap:6px;
+    position: relative;
+    background: black;
+    border-radius: 1.5rem;
+
+}
+
+.connec:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg,#00e8ff,#740cb8 ,#f300ff );
+  border-radius: 1.5rem;
+  z-index: -1;
+  animation: animatedgradient 2.5s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.user{
+    flex: 1 0 130px;
+    background: grey;
+    border-radius: 1rem;
+    border:none;
+    min-height: 2.8rem;
+    max-height: 4rem;
+    font-size: 160%;
+    cursor: pointer ;
+}
+
+.pass{
+    flex: 1 0 130px;
+    background: grey;
+    border-radius: 1rem;
+    border:none;
+    font-size: 160%;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin:0px;
+    cursor: pointer;
+
+}
+.champmdp{
+    cursor: pointer ;
+    flex: 1 0 130px;
+    padding: 0px;
+    margin:0px;
+    display: flex;
+    align-items: center;
+    background: grey;
+    border-radius: 1rem;
+    border:none;
+    min-height: 2.8rem;
+    max-height: 4rem;
+
+}
+.togglePassword{
+    margin-left: -50px;
+}
+.inin{
+    flex: 1 0 50px;
+    text-align: center;
+    height: 3rem;
+    background: linear-gradient(to right,#00e8ff,#740cb8 ,#f300ff   );
+    border-radius: 8em;
+    cursor: pointer;
+    position: relative;
+    margin: 0.5rem;
+    min-width: 7rem;
+    font-family: optima, sans-serif;
+    font-weight: bold;
+    font-size: 1em;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0px 0px 30px #bd07da;
+    outline: 2px;
+    outline-offset: 3px;
+    border:2.5px solid black;
+}
+
+
+/* TOGGLE SWITCH TROUVE SUR INTERNET */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+  background-color:black;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.oeils{
+    -border-radius: 4px;
+    height: 15px;
+    width: 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+}
